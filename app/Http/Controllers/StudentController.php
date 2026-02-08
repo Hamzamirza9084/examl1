@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -11,12 +10,13 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('students.index', compact('students'));
+        // Updated to use 'index' instead of 'students.index' to match your file structure
+        return view('index', compact('students')); 
     }
 
     public function create()
     {
-        return view('students.create');
+        return view('create');
     }
 
     public function store(Request $request)
@@ -28,7 +28,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = Student::find($id);
-        return view('students.edit', compact('student'));
+        return view('edit', compact('student'));
     }
 
     public function update(Request $request, $id)
